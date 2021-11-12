@@ -1,5 +1,3 @@
-.header {
-  .header-title {
-    color: $main-light-color;
-  }
+.button {
+  @include button();
 }

@@ -1,1 +1,15 @@
-
+@mixin button {
+  padding: $padding;
+  color: $main-light-color;
+  font-family: $font-family;
+  font-size: $font-size-main;
+  text-transform: uppercase;
+  background-color: $bg-color;
+  border: $button-border;
+  cursor: pointer;
+  transition: color $transition-duration, border-color $transition-duration;
+  &:hover {
+    color: $main-light-color-hover;
+    border: $button-border-hover;
+  }
+}

@@ -4,4 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  @media (max-height: 450px) {
+    margin-top: $margin-large;
+    margin-bottom: $margin-large;
+  }
+}
+
+.first-page-btn {
+  margin-top: $margin-large;
 }

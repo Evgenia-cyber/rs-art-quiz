@@ -4,8 +4,13 @@ $wrong-color: #650606;
 $not-active-color: #a99578;
 $main-light-color: #cf943a;
 $main-dark-color: #7b5620;
-$main-light-color-hover: #e29c30;
+$main-light-color-hover: #ffa620;
 $main-dark-color-hover: #a97529;
+
+$button-border: 2px solid $main-light-color;
+$button-border-hover: 2px solid $main-light-color-hover;
+
+$font-family: 'Roboto', sans-serif;
 
 $font-size-headers: 24px;
 $font-size-main: 18px;
@@ -14,3 +19,7 @@ $font-size-results: 40px;
 $font-size-results-in-categories: 20px;
 
 $padding: 16px;
+$margin-large: 70px;
+$margin-small: 30px;
+
+$transition-duration: 0.3s;
