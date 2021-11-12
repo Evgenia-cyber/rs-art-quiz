@@ -1,4 +1,15 @@
 body {
   font-size: $font-size-main;
   background-color: $bg-color;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.show {
+  // border: 1px solid red;
+}
+
+.hide {
+  display: none;
 }

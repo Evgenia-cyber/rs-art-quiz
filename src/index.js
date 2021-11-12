@@ -1,8 +1,6 @@
-import Header from './components/Header';
+import FirstPage from './pages/FirstPage/firstPage';
 
 import './index.scss';
 
 const root = document.querySelector('#root');
-root.append(Header);
-
-console.log(Header);
+root.append(FirstPage);

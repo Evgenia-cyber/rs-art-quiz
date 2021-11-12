@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     clean: true,
+    assetModuleFilename: 'assets/[name][hash][ext]',
   },
   mode: 'development',
   module: {
@@ -53,5 +54,8 @@ module.exports = {
     // настройки для webpack-dev-server
     compress: true,
     port: 3000,
+    hot: true,
+    open: true,
+    historyApiFallback: true,
   },
 };
