@@ -9,6 +9,7 @@ module.exports = {
     // при выполнении команды "npm run build" сюда webpack будет складывать файлы
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
+    clean: true,
   },
   mode: 'development',
   module: {

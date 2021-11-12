@@ -9,7 +9,14 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "plugins": ["prettier"],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "crlf"
+      }
+    ],
     "linebreak-style": ["error", "windows"]
   }
 }
