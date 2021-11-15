@@ -1,15 +1,23 @@
 import htmlToElement from '../../utils/htmlToElement';
 import FirstPageHTML from './firstPage.html';
 import Button from '../../components/Button/button';
+import changePage from '../../utils/changePage';
+import { MAIN_PAGE_URL } from '../../constants';
 
 import './firstPage.scss';
 
 const onClickHandler = () => {
-  console.log(1);
+  changePage(MAIN_PAGE_URL);
 };
 
-const FirstPage = htmlToElement(FirstPageHTML);
-const СustomButton = Button({ onClick: onClickHandler, title: 'Начать игру', className: 'first-page-btn' });
-FirstPage.appendChild(СustomButton);
+const FirstPage = () => {
+  const firstPageElement = htmlToElement(FirstPageHTML);
+
+  const СustomButton = Button({ onClick: onClickHandler, title: 'Начать игру', className: 'first-page-btn' });
+
+  firstPageElement.appendChild(СustomButton);
+
+  return firstPageElement;
+};
 
 export default FirstPage;

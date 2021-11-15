@@ -6,6 +6,7 @@
   text-transform: uppercase;
   background-color: $bg-color;
   border: $button-border;
+  box-sizing: border-box;
   cursor: pointer;
   transition: color $transition-duration, border-color $transition-duration;
   &:hover {

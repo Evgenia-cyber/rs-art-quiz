@@ -10,7 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
     clean: true,
-    assetModuleFilename: 'assets/[name][hash][ext]',
+    assetModuleFilename: 'assets/[name][ext]',
   },
   mode: 'development',
   module: {
@@ -33,7 +33,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
-              // этот scss файл будет общим для всех других scss
+              // этоти scss файлы будут общими для всех других scss
               resources: ['src/styles/vars.scss', 'src/styles/mixins.scss'],
             },
           },
