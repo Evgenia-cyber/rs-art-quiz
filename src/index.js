@@ -2,6 +2,7 @@ import FirstPage from './pages/FirstPage/firstPage';
 import MainPage from './pages/MainPage/mainPage';
 import { FIRST_PAGE_URL, MAIN_PAGE_URL } from './constants';
 import Header from './components/Header/header';
+import Footer from './components/Footer/footer';
 
 import './index.scss';
 
@@ -17,9 +18,9 @@ const renderPage = () => {
   if (url === FIRST_PAGE_URL) {
     root.append(TEMPLATES[url]());
   } else {
-    const header = Header();
-    root.append(header);
+    root.append(Header());
     root.append(TEMPLATES[url]());
+    root.append(Footer());
   }
 };
 
