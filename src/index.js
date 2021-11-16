@@ -1,6 +1,7 @@
 import FirstPage from './pages/FirstPage/firstPage';
 import MainPage from './pages/MainPage/mainPage';
 import { FIRST_PAGE_URL, MAIN_PAGE_URL } from './constants';
+import Header from './components/Header/header';
 
 import './index.scss';
 
@@ -10,10 +11,16 @@ const TEMPLATES = {
 };
 
 const renderPage = () => {
-  const root = document.querySelector('#root');
+  const root = document.querySelector('body');
   root.innerHTML = '';
   const url = window.location.pathname;
-  root.append(TEMPLATES[url]());
+  if (url === FIRST_PAGE_URL) {
+    root.append(TEMPLATES[url]());
+  } else {
+    const header = Header();
+    root.append(header);
+    root.append(TEMPLATES[url]());
+  }
 };
 
 // прослушать все изменения URL:

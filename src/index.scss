@@ -10,15 +10,11 @@ body {
   box-sizing: border-box;
 }
 
-.show {
-  // border: 1px solid red;
-}
-
-.hide {
-  display: none;
-}
-
 .container {
   max-width: $content-max-width;
   margin: 0 auto;
+}
+
+.logo {
+  filter: $icon-hover-filter;
 }
