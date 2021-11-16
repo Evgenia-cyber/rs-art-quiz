@@ -15,6 +15,11 @@ body {
   margin: 0 auto;
 }
 
+.content-container {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
 .logo {
   filter: $icon-hover-filter;
 }
