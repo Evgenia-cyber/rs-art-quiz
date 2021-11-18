@@ -1,0 +1,26 @@
+.rounds-page-cards {
+  gap: $margin-small;
+  @media (max-width: 580px) {
+    margin-right: $margin-small;
+    margin-left: $margin-small;
+  }
+}
+
+.rounds-page-image {
+  max-width: 250px;
+}
+
+.rounds-page-btn,
+.rounds-page-res-btn {
+  border: none;
+  &:hover {
+    border: none;
+  }
+}
+
+.rounds-page-res-btn {
+  padding-left: 25px;
+  font-size: $font-size-results-in-categories;
+  background: url('../../assets/icons/award.svg') no-repeat left center;
+  background-size: $font-size-results-in-categories $font-size-results-in-categories;
+}

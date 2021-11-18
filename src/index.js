@@ -1,6 +1,7 @@
 import FirstPage from './pages/FirstPage/firstPage';
 import MainPage from './pages/MainPage/mainPage';
-import { FIRST_PAGE_URL, MAIN_PAGE_URL } from './constants';
+import RoundsPage from './pages/RoundsPage/roundsPage';
+import { FIRST_PAGE_URL, MAIN_PAGE_URL, ROUNDS_PAGE_URL, CHANGE_PAGE_EVENT } from './constants';
 import Header from './components/Header/header';
 import Footer from './components/Footer/footer';
 
@@ -9,6 +10,7 @@ import './index.scss';
 const TEMPLATES = {
   [FIRST_PAGE_URL]: FirstPage,
   [MAIN_PAGE_URL]: MainPage,
+  [ROUNDS_PAGE_URL]: RoundsPage,
 };
 
 const renderPage = () => {
@@ -25,7 +27,8 @@ const renderPage = () => {
 };
 
 // прослушать все изменения URL:
-window.addEventListener('popstate', renderPage);
+// window.addEventListener('popstate', renderPage1);
+window.addEventListener(CHANGE_PAGE_EVENT, renderPage);
 
 // прослушать загрузку страницы:
 window.addEventListener('load', renderPage);

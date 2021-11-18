@@ -2,7 +2,7 @@ import htmlToElement from '../../utils/htmlToElement';
 import MainPageHTML from './mainPage.html';
 import Title from '../../components/Title/title';
 import Card from '../../components/Card/card';
-import { ARTIST, PAINTING, ROUNDS_PAGE_URL } from '../../constants';
+import { ARTIST, PAINTING, SETTINGS_PAGE_URL } from '../../constants';
 import changePage from '../../utils/changePage';
 import state from '../../State';
 
@@ -10,16 +10,16 @@ import './mainPage.scss';
 
 const categories = [ARTIST, PAINTING];
 
-const onClickHandler = async (category) => {
+const onClickHandler = (category) => {
   state.setCategory(category);
-  await state.setAllDataAndQuestionsCount();
-  changePage(ROUNDS_PAGE_URL, state);
+  // changePage(SETTINGS_PAGE_URL);
+  console.log(state);
 };
 
 const MainPage = () => {
   const mainPageElement = htmlToElement(MainPageHTML);
-  const customTitle = Title({ title: 'Главная' });
-  mainPageElement.appendChild(customTitle);
+  const СustomTitle = Title({ title: 'Главная' });
+  mainPageElement.appendChild(СustomTitle);
 
   const pageContent = document.createElement('div');
   pageContent.classList.add('cards');

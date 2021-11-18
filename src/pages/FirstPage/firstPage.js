@@ -13,9 +13,9 @@ const onClickHandler = () => {
 const FirstPage = () => {
   const firstPageElement = htmlToElement(FirstPageHTML);
 
-  const СustomButton = Button({ onClick: onClickHandler, title: 'Начать игру', className: 'first-page-btn' });
+  const customButton = Button({ onClick: onClickHandler, title: 'Начать игру', className: 'first-page-btn' });
 
-  firstPageElement.appendChild(СustomButton);
+  firstPageElement.appendChild(customButton);
 
   return firstPageElement;
 };

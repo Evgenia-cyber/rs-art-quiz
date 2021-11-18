@@ -1,8 +1,12 @@
-.footer {
+.container.footer {
+  margin-top: calc($margin-large - $margin-small);
   display: flex;
   justify-content: space-between;
   color: $main-dark-color;
   font-size: $font-size-footer;
+  @media (max-width: 450px) {
+    margin-top: calc($margin-large-mobile - $margin-small-mobile);
+  }
 
   .footer-data {
     padding-left: $padding;

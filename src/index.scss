@@ -23,3 +23,17 @@ body {
 .logo {
   filter: $icon-hover-filter;
 }
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.not-active {
+  filter: grayscale(100%);
+  transition: filter $transition-duration;
+  &:hover {
+    filter: grayscale(50%);
+  }
+}

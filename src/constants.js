@@ -3,7 +3,21 @@ export const PAINTING = { title: 'картины', alt: 'Иван-царевич
 
 export const FIRST_PAGE_URL = '/';
 export const MAIN_PAGE_URL = '/main';
+export const SETTINGS_PAGE_URL = '/settings';
+export const ROUNDS_PAGE_URL = '/rounds';
 
-export const DATA_URL = 'https://github.com/Evgenia-cyber/image-data/blob/master/images.json';
+export const DATA_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/image-data/master/images.json';
 export const IMAGES_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/image-data/master/img/';
-// export const IMAGES_URL = 'https://github.com/Evgenia-cyber/image-data/tree/master/img/';
+
+export const CHANK = 10;
+export const CATEGORIES_COUNT = 2;
+
+export const DEFAULT_VOLUME = 0.5;
+export const DEFAULT_TIMER_SECONDS = 60;
+
+export const CHANGE_PAGE_EVENT = 'change page';
+
+export const IMAGE_FILE_EXTENSION = '.webp';
+
+export const CORRECT_ANSWER = '+';
+export const UNCORRECT_ANSWER = '-';
