@@ -1,6 +1,8 @@
 import { ARTIST, CATEGORIES_COUNT, CHANK, DEFAULT_TIMER_SECONDS, DEFAULT_VOLUME } from './constants';
+import createQuestionOptions from './utils/createQuestionOptions';
 import getDataFromJSON from './utils/getDataFromJSON';
 import getDataFromLocalStorage from './utils/getDataFromLocalStorage';
+import initResults from './utils/initResults';
 import makeArrayFromObject from './utils/makeArrayFromObject';
 import setDataToLocalStorage from './utils/setDataToLocalStorage';
 
@@ -27,9 +29,37 @@ class State {
     this.category = '';
     this.allData = [];
     this.questionsCount = 0;
+    this.currentQuestionNumber = -1;
+    this.currentGameResults = initResults();
 
     // eslint-disable-next-line no-constructor-return
     // return State.instance;
+  }
+
+  setGameResults() {
+    return this.currentGameResults;
+  }
+
+  getGameResults() {
+    return this.currentGameResults;
+  }
+
+  setCurrentQuestionNumber(chunkNumber) {
+    const isArtistCategory = this.category === ARTIST.title;
+
+    const currentIndex = chunkNumber * CHANK;
+
+    this.currentQuestionNumber = isArtistCategory ? currentIndex : currentIndex + this.questionsCount;
+  }
+
+  getCurrentQuestionData() {
+    const questionData = this.allData[this.currentQuestionNumber];
+
+    questionData.questionOptions = createQuestionOptions(this.allData, questionData, this.category);
+
+    questionData.dotNumber = this.currentQuestionNumber % 10;
+
+    return questionData;
   }
 
   setCategory(category) {

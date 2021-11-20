@@ -1,0 +1,40 @@
+.game-page{
+  padding-left: $margin-small-mobile;
+  padding-right: $margin-small-mobile;
+  @media (max-width: 450px) {
+    margin-top: $margin-large-mobile;
+    margin-bottom: $margin-large-mobile;
+    gap: $margin-small-mobile;
+  }
+}
+
+.game-page-title {
+  font-size: $font-size-main;
+}
+
+.game-page-main-image {
+  max-width: $content-width;
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.main-page-image {
+  max-width: 380px;
+  margin-right: $margin-small;
+  margin-left: $margin-small;
+  @media (max-width: 450px) {
+    max-width: 80%;
+  }
+}
+
+.main-page-btn {
+  width: 380px;
+  margin-top: $margin-small;
+  margin-bottom: $margin-small;
+  @media (max-width: 450px) {
+    width: 80%;
+    margin-top: $margin-small-mobile;
+    margin-bottom: $margin-small-mobile;
+  }
+}

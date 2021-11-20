@@ -1,0 +1,35 @@
+.options {
+  max-width: $content-width;
+  margin: $margin-large auto;
+  justify-content: space-between;
+  gap: $margin-small;
+  @media (max-width: 450px) {
+   margin-top: $margin-large-mobile;
+   margin-bottom: $margin-large-mobile;
+ }
+}
+
+.options-image {
+  margin-top: 0;
+}
+
+.option-btn {
+  flex-basis: 48%;
+  @media (max-width: 790px) {
+    flex-basis: 100%;
+  }
+}
+
+.option-image-btn {
+  padding: 0;
+  max-width: 300px;
+  max-height: 300px;
+  @media (max-width: 350px) {
+    max-width: 276px;
+    max-height: 276px;
+  }
+}
+
+.option-image-btn-image {
+  max-width: 100%;
+}

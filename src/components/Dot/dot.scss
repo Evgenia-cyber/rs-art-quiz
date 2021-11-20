@@ -1,0 +1,24 @@
+.dot {
+  width: 30px;
+  height: 30px;
+  @media (max-width: 700px) {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.dot-correct {
+  background-color: $correct-color;
+}
+
+.dot-wrong {
+  background-color: $wrong-color;
+}
+
+.dot-active {
+  background-color: $main-dark-color;
+}
+
+.dot-not-active {
+  background-color: $not-active-color;
+}

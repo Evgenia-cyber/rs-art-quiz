@@ -13,7 +13,7 @@ const categories = [ARTIST, PAINTING];
 const onClickHandler = async (category) => {
   state.setCategory(category);
   await state.setAllDataAndQuestionsCount();
-  changePage(ROUNDS_PAGE_URL, state);
+  changePage(ROUNDS_PAGE_URL);
 };
 
 const MainPage = () => {

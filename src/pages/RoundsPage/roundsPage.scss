@@ -1,8 +1,8 @@
 .rounds-page-cards {
   gap: $margin-small;
   @media (max-width: 580px) {
-    margin-right: $margin-small;
-    margin-left: $margin-small;
+    margin-right: $margin-small-mobile;
+    margin-left: $margin-small-mobile;
   }
 }
 

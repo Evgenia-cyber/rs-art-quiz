@@ -2,14 +2,15 @@ import htmlToElement from '../../utils/htmlToElement';
 import RoundsPageHTML from './roundsPage.html';
 import Title from '../../components/Title/title';
 import Card from '../../components/Card/card';
-// import changePage from '../../utils/changePage';
-import { IMAGE_FILE_EXTENSION, CHANK } from '../../constants';
+import changePage from '../../utils/changePage';
+import { IMAGE_FILE_EXTENSION, CHANK, GAME_PAGE_URL } from '../../constants';
 import state from '../../State';
 
 import './roundsPage.scss';
 
-const onClickHandler = (roundNumber) => {
-  console.log(1, roundNumber);
+const onClickHandler = (index) => {
+  state.setCurrentQuestionNumber(index);
+  changePage(GAME_PAGE_URL);
 };
 
 const onResultBtnClickHandler = (roundNumber) => {
@@ -38,7 +39,7 @@ const RoundsPage = () => {
       file: `${image}${IMAGE_FILE_EXTENSION}`,
       alt: `изображение ${roundNumber}`,
       imageClassName: 'rounds-page-image',
-      onClick: () => onClickHandler(roundNumber),
+      onClick: () => onClickHandler(index),
       title: `${roundNumber} раунд`,
       buttonClassName: 'rounds-page-btn',
       isActive,

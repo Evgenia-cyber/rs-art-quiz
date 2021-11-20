@@ -1,0 +1,9 @@
+.dots {
+  max-width: $content-width;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $margin-large;
+  @media (max-width: 450px) {
+    margin-bottom: $margin-large-mobile;
+  }
+}
