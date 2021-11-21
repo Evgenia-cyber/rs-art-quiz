@@ -6,7 +6,6 @@ import './icon.scss';
 const Icon = ({ onClick, src, alt, className = '' }) => {
   const iconElement = htmlToElement(IconHTML);
 
-  // Пример использования картинки
   const icon = new Image();
   icon.src = src;
   icon.alt = alt;

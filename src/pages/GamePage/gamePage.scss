@@ -16,7 +16,8 @@
   max-width: $content-width;
   width: 100%;
   max-height: 500px;
-  object-fit: cover;
+  object-fit: contain;
+  // object-fit: cover;
 }
 
 .main-page-image {

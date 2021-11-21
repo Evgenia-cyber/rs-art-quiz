@@ -2,20 +2,19 @@ import htmlToElement from '../../utils/htmlToElement';
 import GamePageHTML from './gamePage.html';
 import Title from '../../components/Title/title';
 import { ARTIST, ARTIST_QUESTION, IMAGE_FILE_EXTENSION, PAINTING_QUESTION } from '../../constants';
-// import changePage from '../../utils/changePage';
 import Dots from '../../components/Dots/dots';
 import ImageComponent from '../../components/Image/image';
+import Options from '../../components/Options/options';
 import state from '../../State';
 
 import './gamePage.scss';
-import Options from '../../components/Options/options';
 
 const GamePage = () => {
   const gamePageElement = htmlToElement(GamePageHTML);
 
   const dots = state.getGameResults();
 
-  const { author, imageNum, questionOptions, dotNumber } = state.getCurrentQuestionData();
+  const { author, name, year, imageNum, questionOptions, dotNumber } = state.getCurrentQuestionData();
 
   const category = state.getCategory();
   const isArtistCategory = category === ARTIST.title;
@@ -43,6 +42,9 @@ const GamePage = () => {
     isArtistCategory,
     correctArtist: author,
     correctPainting: imageNum,
+    infoPaintingName: name,
+    infoPaintingYear: year,
+    questionNumber: dotNumber,
   });
 
   gamePageElement.appendChild(optionsElement);

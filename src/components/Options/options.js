@@ -2,22 +2,72 @@ import htmlToElement from '../../utils/htmlToElement';
 import OptionsHTML from './options.html';
 import ImageComponent from '../Image/image';
 import Button from '../Button/button';
-import { IMAGE_FILE_EXTENSION } from '../../constants';
+import {
+  CHANK,
+  CORRECT_ANSWER,
+  GAME_PAGE_URL,
+  IMAGE_FILE_EXTENSION,
+  ROUNDS_PAGE_URL,
+  UNCORRECT_ANSWER,
+} from '../../constants';
+import InfoPopup from '../InfoPopup/infoPopup';
+import GameEndPopup from '../GameEndPopup/gameEndPopup';
+import state from '../../State';
+import changePage from '../../utils/changePage';
+import updateDataInLocalStorage from '../../utils/updateDataInLocalStorage';
 
 import './options.scss';
 
-const Options = ({ options, isArtistCategory, correctArtist, correctPainting }) => {
-  const onOptionClickHandler = (option) => {
-    console.log(111, option, correctArtist, correctPainting); // '120' 'Альбрехт Дюрер' '120' ИЛИ  'Винсент Ван Гог' 'Павел Федотов' '0'
+const onPopupGameEndBtnClickHandler = () => {
+  changePage(ROUNDS_PAGE_URL);
+};
 
-    // записать правильный/неправильный ответ в State.results
+const Options = ({
+  options,
+  isArtistCategory,
+  correctArtist,
+  correctPainting,
+  infoPaintingName,
+  infoPaintingYear,
+  questionNumber,
+}) => {
+  const onPopupInfoBtnClickHandler = () => {
+    const lastQuestion = CHANK - 1;
+    const isLastQuestion = questionNumber === lastQuestion;
+    if (!isLastQuestion) {
+      state.increaseCurrentQuestionNumber();
+      changePage(GAME_PAGE_URL);
+    } else {
+      const results = state.getGameResults();
+      const correctAnswersCount = results.filter((item) => item === CORRECT_ANSWER).length;
 
-    // проверить, не последний ли вопрос const LAST_QUESTION = CHANK - 1; - показать попап с резульатом игры (удалить у него класс .hide) и сохранить данные в локал сторадже
-    // после клика по продолжить перейти на страницу с раундами выбранной категории
+      const popupEndGameEl = document.querySelector('.popup-endgame-id');
+      const popupResultEl = document.createElement('p');
+      popupResultEl.innerHTML = `${correctAnswersCount} / ${CHANK}`;
+      popupEndGameEl.querySelector('.result-id').appendChild(popupResultEl);
 
-    // иначе показать прав ответ попап (удалить у него класс .hide)
-    // и увеличить номер вопроса на 1 и снова перейти на страницу вопроса, после клика продолжить в попапе
-    // changePage(GAME_PAGE_URL);
+      popupEndGameEl.classList.remove('hide');
+
+      updateDataInLocalStorage(isArtistCategory, correctPainting, lastQuestion, results);
+
+      state.initGame();
+    }
+  };
+
+  const onOptionClickHandler = (option, index) => {
+    const isCorrectAnswer = option === correctArtist || option === correctPainting;
+
+    const result = isCorrectAnswer ? CORRECT_ANSWER : UNCORRECT_ANSWER;
+    state.setGameResults(result, isArtistCategory);
+
+    const checkedOptionElement = document.querySelectorAll('.option-id')[index];
+    const checkedOptionElementClassName = isCorrectAnswer ? 'correct' : 'wrong';
+    checkedOptionElement.classList.add(checkedOptionElementClassName);
+
+    const infoPopupEl = document.querySelector('.popup-info-id');
+    infoPopupEl.classList.remove('hide');
+    const infoPopupContainerElClassName = isCorrectAnswer ? 'info-popup-correct' : 'info-popup-wrong';
+    infoPopupEl.querySelector('.popup-content').classList.add(infoPopupContainerElClassName);
   };
 
   const optionsElement = htmlToElement(OptionsHTML);
@@ -32,11 +82,13 @@ const Options = ({ options, isArtistCategory, correctArtist, correctPainting }) 
 
     const button = Button({
       onClick: () => {
-        onOptionClickHandler(option);
+        onOptionClickHandler(option, index);
       },
       title: btnTitle,
       className: btnClassName,
     });
+
+    button.classList.add('option-id');
 
     if (!isArtistCategory) {
       const buttonImg = ImageComponent({
@@ -51,8 +103,18 @@ const Options = ({ options, isArtistCategory, correctArtist, correctPainting }) 
     optionsElement.appendChild(button);
   });
 
-  // добавить попап с правильным ответом с классом .hide
-  // добавить попап с результатами с классом .hide
+  const infoPopupElement = InfoPopup({
+    onClick: onPopupInfoBtnClickHandler,
+    title: 'Продолжить',
+    artist: correctArtist,
+    paintingName: infoPaintingName,
+    paintingYear: infoPaintingYear,
+    paintingFile: correctPainting,
+  });
+  optionsElement.appendChild(infoPopupElement);
+
+  const gameEndPopupElement = GameEndPopup({ onClick: onPopupGameEndBtnClickHandler, className: 'popup-endgame-id' });
+  optionsElement.appendChild(gameEndPopupElement);
 
   return optionsElement;
 };

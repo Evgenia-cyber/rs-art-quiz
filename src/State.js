@@ -36,12 +36,22 @@ class State {
     // return State.instance;
   }
 
-  setGameResults() {
-    return this.currentGameResults;
+  setGameResults(result, isArtistCategory) {
+    let { currentQuestionNumber } = this;
+
+    if (!isArtistCategory) {
+      currentQuestionNumber -= this.questionsCount;
+    }
+    const indexResult = currentQuestionNumber % CHANK;
+    this.currentGameResults[indexResult] = result;
   }
 
   getGameResults() {
     return this.currentGameResults;
+  }
+
+  initGame() {
+    this.currentGameResults = initResults();
   }
 
   setCurrentQuestionNumber(chunkNumber) {
@@ -50,6 +60,10 @@ class State {
     const currentIndex = chunkNumber * CHANK;
 
     this.currentQuestionNumber = isArtistCategory ? currentIndex : currentIndex + this.questionsCount;
+  }
+
+  increaseCurrentQuestionNumber() {
+    this.currentQuestionNumber += 1;
   }
 
   getCurrentQuestionData() {

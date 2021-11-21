@@ -4,11 +4,13 @@ import Icon from '../Icon/icon';
 import logoImg from '../../assets/icons/logo.svg';
 import settingsImg from '../../assets/icons/settings.svg';
 import fullscreenOffImg from '../../assets/icons/fullscreen-off.svg';
+import changePage from '../../utils/changePage';
+import { MAIN_PAGE_URL } from '../../constants';
 
 import './header.scss';
 
 const onLogoClick = () => {
-  console.log(2);
+  changePage(MAIN_PAGE_URL);
 };
 
 const onFullScreenClick = () => {

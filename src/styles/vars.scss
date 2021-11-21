@@ -1,5 +1,5 @@
 $bg-color: #030303;
-$bg-color-popup: rgba(3, 3, 3, 0.7);
+$bg-color-popup: rgba(3, 3, 3, 0.8);
 $correct-color: #2d3a08;
 $wrong-color: #650606;
 $not-active-color: #a99578;
@@ -36,3 +36,7 @@ $content-popup: 300px;
 
 $transform-hover-icon: scale(1.05);
 $transform-active-icon: scale(1.1);
+
+$border-info: 4px solid $main-dark-color;
+$border-wrong: 4px solid $wrong-color;
+$border-correct: 4px solid $correct-color;

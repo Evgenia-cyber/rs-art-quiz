@@ -3,7 +3,7 @@ import RoundsPageHTML from './roundsPage.html';
 import Title from '../../components/Title/title';
 import Card from '../../components/Card/card';
 import changePage from '../../utils/changePage';
-import { IMAGE_FILE_EXTENSION, CHANK, GAME_PAGE_URL } from '../../constants';
+import { IMAGE_FILE_EXTENSION, CHANK, GAME_PAGE_URL, CORRECT_ANSWER } from '../../constants';
 import state from '../../State';
 
 import './roundsPage.scss';
@@ -33,8 +33,11 @@ const RoundsPage = () => {
   data.forEach((item, index) => {
     const { image, results } = item;
     const isActive = results.length > 0;
-    // TODO: посчитать количество правильных ответов в results и добавить его в resultBtnTitle: ` / ${CHANK}`(чтобы было, например, 9 / 10)
+
+    const correctAnswersCount = results.filter((resultItem) => resultItem === CORRECT_ANSWER).length;
+
     const roundNumber = index + 1;
+
     const card = Card({
       file: `${image}${IMAGE_FILE_EXTENSION}`,
       alt: `изображение ${roundNumber}`,
@@ -45,7 +48,7 @@ const RoundsPage = () => {
       isActive,
       isRoundsPage: true,
       onResultBtnClick: () => onResultBtnClickHandler(roundNumber),
-      resultBtnTitle: ` / ${CHANK}`,
+      resultBtnTitle: `${correctAnswersCount} / ${CHANK}`,
       classNameResultBtn: 'rounds-page-res-btn',
     });
 
