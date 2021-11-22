@@ -3,10 +3,18 @@ import RoundsPageHTML from './roundsPage.html';
 import Title from '../../components/Title/title';
 import Card from '../../components/Card/card';
 import changePage from '../../utils/changePage';
-import { IMAGE_FILE_EXTENSION, CHANK, GAME_PAGE_URL, CORRECT_ANSWER, RESULT_PAGE_URL } from '../../constants';
+import {
+  IMAGE_FILE_EXTENSION,
+  CHANK,
+  GAME_PAGE_URL,
+  CORRECT_ANSWER,
+  RESULT_PAGE_URL,
+  MAIN_PAGE_URL,
+} from '../../constants';
 import state from '../../State';
 
 import './roundsPage.scss';
+import redirectTo from '../../utils/redirectTo';
 
 const onClickHandler = (index) => {
   state.setCurrentQuestionNumber(index);
@@ -24,6 +32,9 @@ const RoundsPage = () => {
   const roundsPageElement = htmlToElement(RoundsPageHTML);
 
   const title = state.getCategory();
+  if (!title) {
+    redirectTo(MAIN_PAGE_URL);
+  }
   const customTitle = Title({ title });
   roundsPageElement.appendChild(customTitle);
 

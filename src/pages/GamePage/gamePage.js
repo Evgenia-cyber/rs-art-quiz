@@ -1,23 +1,27 @@
 import htmlToElement from '../../utils/htmlToElement';
 import GamePageHTML from './gamePage.html';
 import Title from '../../components/Title/title';
-import { ARTIST, ARTIST_QUESTION, IMAGE_FILE_EXTENSION, PAINTING_QUESTION } from '../../constants';
+import { ARTIST, ARTIST_QUESTION, IMAGE_FILE_EXTENSION, MAIN_PAGE_URL, PAINTING_QUESTION } from '../../constants';
 import Dots from '../../components/Dots/dots';
 import ImageComponent from '../../components/Image/image';
 import Options from '../../components/Options/options';
 import state from '../../State';
 
 import './gamePage.scss';
+import redirectTo from '../../utils/redirectTo';
 
 const GamePage = () => {
+  const category = state.getCategory();
+  if (!category) {
+    redirectTo(MAIN_PAGE_URL);
+  }
+  const isArtistCategory = category === ARTIST.title;
+
   const gamePageElement = htmlToElement(GamePageHTML);
 
   const dots = state.getGameResults();
 
   const { author, name, year, imageNum, questionOptions, dotNumber } = state.getCurrentQuestionData();
-
-  const category = state.getCategory();
-  const isArtistCategory = category === ARTIST.title;
 
   let question;
   if (isArtistCategory) {

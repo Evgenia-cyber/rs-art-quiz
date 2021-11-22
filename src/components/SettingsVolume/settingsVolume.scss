@@ -4,6 +4,10 @@
   align-items: center;
   width: 300px;
   padding: $margin-small $padding;
+  margin-bottom: $margin-small;
+  @media (max-width: 450px) {
+    margin-bottom: $margin-small-mobile;
+  }
 }
 
 .settings-volume-btn-image {

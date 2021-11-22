@@ -2,12 +2,13 @@ import htmlToElement from '../../utils/htmlToElement';
 import ResultPageHTML from './resultPage.html';
 import Title from '../../components/Title/title';
 import Card from '../../components/Card/card';
-import { IMAGE_FILE_EXTENSION, CORRECT_ANSWER, ARTIST } from '../../constants';
+import { IMAGE_FILE_EXTENSION, CORRECT_ANSWER, ARTIST, MAIN_PAGE_URL } from '../../constants';
 import getDataFromLocalStorage from '../../utils/getDataFromLocalStorage';
 import InfoPopup from '../../components/InfoPopup/infoPopup';
 import state from '../../State';
 
 import './resultPage.scss';
+import redirectTo from '../../utils/redirectTo';
 
 const onCloseBtnClickHandler = () => {
   const popupEl = document.querySelector('.info-result-id');
@@ -36,6 +37,9 @@ const onClickHandler = (imageNum) => {
 
 const ResultPage = () => {
   const category = state.getCategory();
+  if (!category) {
+    redirectTo(MAIN_PAGE_URL);
+  }
   const isArtistCategory = category === ARTIST.title;
 
   const dataFromLocalStorage = getDataFromLocalStorage(category);
