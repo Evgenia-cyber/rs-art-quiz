@@ -1,0 +1,19 @@
+.main-page-image {
+  max-width: 380px;
+  margin-right: $margin-small;
+  margin-left: $margin-small;
+  @media (max-width: 450px) {
+    max-width: 80%;
+  }
+}
+
+.main-page-btn {
+  width: 380px;
+  margin-top: $margin-small;
+  margin-bottom: $margin-small;
+  @media (max-width: 450px) {
+    width: 80%;
+    margin-top: $margin-small-mobile;
+    margin-bottom: $margin-small-mobile;
+  }
+}

@@ -1,0 +1,11 @@
+.settings-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: $margin-small $padding;
+}
+
+.settings-volume-btn-image {
+  margin-top: $margin-large-mobile;
+}

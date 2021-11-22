@@ -5,7 +5,7 @@ import logoImg from '../../assets/icons/logo.svg';
 import settingsImg from '../../assets/icons/settings.svg';
 import fullscreenOffImg from '../../assets/icons/fullscreen-off.svg';
 import changePage from '../../utils/changePage';
-import { MAIN_PAGE_URL } from '../../constants';
+import { MAIN_PAGE_URL, SETTINGS_PAGE_URL } from '../../constants';
 
 import './header.scss';
 
@@ -18,7 +18,7 @@ const onFullScreenClick = () => {
 };
 
 const onSettingsClick = () => {
-  console.log(1);
+  changePage(SETTINGS_PAGE_URL);
 };
 
 const Header = () => {

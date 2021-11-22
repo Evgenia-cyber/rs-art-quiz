@@ -37,6 +37,23 @@ class State {
     // return State.instance;
   }
 
+  getSettings() {
+    return this.settings;
+  }
+
+  setVolumeSettings(volume) {
+    this.settings.volume = volume;
+  }
+
+  initSettings() {
+    const settings = getDataFromLocalStorage('settings');
+
+    if (settings) {
+      this.settings.volume = settings.volume;
+      this.settings.timer = settings.timer;
+    }
+  }
+
   getInfoAboutPainting(imageNum) {
     return this.allData.find((item) => item.imageNum === imageNum.toString());
   }

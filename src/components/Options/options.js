@@ -7,6 +7,7 @@ import {
   CORRECT_ANSWER,
   GAME_PAGE_URL,
   IMAGE_FILE_EXTENSION,
+  MAX_PERCENT,
   ROUNDS_PAGE_URL,
   UNCORRECT_ANSWER,
 } from '../../constants';
@@ -15,6 +16,9 @@ import GameEndPopup from '../GameEndPopup/gameEndPopup';
 import state from '../../State';
 import changePage from '../../utils/changePage';
 import updateDataInLocalStorage from '../../utils/updateDataInLocalStorage';
+import correctSound from '../../assets/sounds/correct.mp3';
+import wrongSound from '../../assets/sounds/incorrect.mp3';
+import sound from '../../utils/sound';
 
 import './options.scss';
 
@@ -55,7 +59,12 @@ const Options = ({
   };
 
   const onOptionClickHandler = (option, index) => {
+    const { volume } = state.getSettings();
+
     const isCorrectAnswer = option === correctArtist || option === correctPainting;
+
+    const soundSrc = isCorrectAnswer ? correctSound : wrongSound;
+    sound.playSound(soundSrc, volume / MAX_PERCENT);
 
     const result = isCorrectAnswer ? CORRECT_ANSWER : UNCORRECT_ANSWER;
     state.setGameResults(result, isArtistCategory);

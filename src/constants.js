@@ -15,7 +15,7 @@ export const CHANK = 10;
 export const CATEGORIES_COUNT = 2;
 
 export const DEFAULT_VOLUME = 0.5;
-export const DEFAULT_TIMER_SECONDS = 60;
+export const DEFAULT_TIMER_SECONDS = 30;
 
 export const CHANGE_PAGE_EVENT = 'change page';
 
@@ -29,3 +29,6 @@ export const ARTIST_QUESTION = 'Кто автор этой картины?';
 export const PAINTING_QUESTION = 'Какую из этих картин написал ';
 
 export const COUNT_OF_OPTIONS = 4;
+
+export const MAX_PERCENT = 100;
+export const MIN_PERCENT = 0;

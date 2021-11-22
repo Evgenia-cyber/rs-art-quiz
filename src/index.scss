@@ -77,3 +77,10 @@ body {
 .info-popup-wrong {
   border-color: $wrong-color;
 }
+
+.settings-item-container {
+  max-width: 400px;
+  max-height: 400px;
+  text-align: center;
+  border: $border-info;
+}
