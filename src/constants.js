@@ -1,7 +1,8 @@
 export const ARTIST = { title: 'художники', alt: 'Автопортрет Эжена Делакруа', file: '240.webp' };
 export const PAINTING = { title: 'картины', alt: 'Иван-царевич на Сером Волке', file: '199.webp' };
 
-export const FIRST_PAGE_URL = '/';
+export const FIRST_PAGE_URL = '/rs-art-quiz/'; // для gh-pages
+// export const FIRST_PAGE_URL = '/'; // для localhost
 export const MAIN_PAGE_URL = '/main';
 export const SETTINGS_PAGE_URL = '/settings';
 export const ROUNDS_PAGE_URL = '/rounds';
