@@ -6,6 +6,7 @@ export const MAIN_PAGE_URL = '/main';
 export const SETTINGS_PAGE_URL = '/settings';
 export const ROUNDS_PAGE_URL = '/rounds';
 export const GAME_PAGE_URL = '/game';
+export const RESULT_PAGE_URL = '/result';
 
 export const DATA_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/image-data/master/images.json';
 export const IMAGES_URL = 'https://raw.githubusercontent.com/Evgenia-cyber/image-data/master/img/';

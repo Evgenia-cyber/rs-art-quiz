@@ -31,9 +31,26 @@ class State {
     this.questionsCount = 0;
     this.currentQuestionNumber = -1;
     this.currentGameResults = initResults();
+    this.currentRoundForResultPage = 0;
 
     // eslint-disable-next-line no-constructor-return
     // return State.instance;
+  }
+
+  getInfoAboutPainting(imageNum) {
+    return this.allData.find((item) => item.imageNum === imageNum.toString());
+  }
+
+  getDifference() {
+    return this.questionsCount / CHANK;
+  }
+
+  setCurrentRoundForResultPage(round) {
+    this.currentRoundForResultPage = round;
+  }
+
+  getCurrentRoundForResultPage() {
+    return this.currentRoundForResultPage;
   }
 
   setGameResults(result, isArtistCategory) {

@@ -3,7 +3,7 @@ import RoundsPageHTML from './roundsPage.html';
 import Title from '../../components/Title/title';
 import Card from '../../components/Card/card';
 import changePage from '../../utils/changePage';
-import { IMAGE_FILE_EXTENSION, CHANK, GAME_PAGE_URL, CORRECT_ANSWER } from '../../constants';
+import { IMAGE_FILE_EXTENSION, CHANK, GAME_PAGE_URL, CORRECT_ANSWER, RESULT_PAGE_URL } from '../../constants';
 import state from '../../State';
 
 import './roundsPage.scss';
@@ -14,7 +14,8 @@ const onClickHandler = (index) => {
 };
 
 const onResultBtnClickHandler = (roundNumber) => {
-  console.log(2, roundNumber);
+  state.setCurrentRoundForResultPage(roundNumber);
+  changePage(RESULT_PAGE_URL);
 };
 
 const RoundsPage = () => {
