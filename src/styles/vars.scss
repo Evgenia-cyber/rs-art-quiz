@@ -1,0 +1,42 @@
+$bg-color: #030303;
+$bg-color-popup: rgba(3, 3, 3, 0.8);
+$correct-color: #2d3a08;
+$wrong-color: #650606;
+$not-active-color: #a99578;
+$main-light-color: #cf943a;
+$main-dark-color: #9c702e;
+$main-light-color-hover: #ffa620;
+$main-dark-color-hover: #c38528;
+$icon-hover-filter: invert(42%) sepia(80%) saturate(382%) hue-rotate(357deg) brightness(89%) contrast(93%);
+
+$button-border: 2px solid $main-light-color;
+$button-border-hover: 2px solid $main-light-color-hover;
+
+$font-family: 'Roboto', sans-serif;
+
+$font-size-titles: 24px;
+$font-size-main: 18px;
+$font-size-footer: 16px;
+$font-size-results: 40px;
+$font-size-results-in-categories: 20px;
+
+$letter-spacing-title: 2px;
+
+$padding: 16px;
+$margin-large: 70px;
+$margin-small: 30px;
+$margin-large-mobile: 40px;
+$margin-small-mobile: 20px;
+
+$transition-duration: 0.3s;
+
+$content-max-width: 1200px;
+$content-width: 900px;
+$content-popup: 300px;
+
+$transform-hover-icon: scale(1.05);
+$transform-active-icon: scale(1.1);
+
+$border-info: 4px solid $main-dark-color;
+$border-wrong: 4px solid $wrong-color;
+$border-correct: 4px solid $correct-color;

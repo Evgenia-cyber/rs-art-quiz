@@ -1,0 +1,11 @@
+.round-page-buttons {
+  margin-top: $margin-small;
+  margin-bottom: $margin-small;
+  display: flex;
+  justify-content: space-between;
+  border: $button-border;
+  box-sizing: border-box;
+  &:hover {
+    border: $button-border-hover;
+  }
+}

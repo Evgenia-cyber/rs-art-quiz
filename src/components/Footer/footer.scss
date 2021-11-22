@@ -1,0 +1,41 @@
+.container.footer {
+  margin-top: calc($margin-large - $margin-small);
+  display: flex;
+  justify-content: space-between;
+  color: $main-dark-color;
+  font-size: $font-size-footer;
+  @media (max-width: 450px) {
+    margin-top: calc($margin-large-mobile - $margin-small-mobile);
+  }
+
+  .footer-data {
+    padding-left: $padding;
+    text-align: left;
+
+    & p {
+      margin: 6px 0 $margin-small;
+    }
+
+    .footer-author {
+      text-decoration: none;
+      color: $main-dark-color;
+      transition: color 0.1s;
+      &:hover {
+        color: $main-dark-color-hover;
+      }
+    }
+  }
+
+  .rs-school {
+    width: 70px;
+    height: auto;
+    padding: 2px;
+    margin-right: $padding;
+    background-color: $main-dark-color;
+    transition: background-color $transition-duration;
+    &:hover {
+      width: 72px;
+      background-color: $main-dark-color-hover;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.title {
+  margin: 0;
+  padding-bottom: $margin-large;
+  font-size: $font-size-titles;
+  letter-spacing: $letter-spacing-title;
+  @media (max-width: 450px) {
+    padding-bottom: $margin-large-mobile;
+  }
+}
